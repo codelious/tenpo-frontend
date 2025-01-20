@@ -19,6 +19,9 @@ export const useEditTransaction = (
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ['transactions'] });
             navigate('/', { replace: true });
+        },
+        onError: (error) => {
+            // console.error('Error saving transaction: ', error)
         }
     });
 };

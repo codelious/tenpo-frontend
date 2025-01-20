@@ -8,9 +8,10 @@ type Props = {
     action: string;
     transaction: Transaction | undefined;
     handleSubmit: (values: TransactionInput) => void;
+    error?: any;
 };
 
-export default function TransactionForm({ transaction, handleSubmit, action }: Props) {
+export default function TransactionForm({ transaction, handleSubmit, action, error }: Props) {
     const navigate = useNavigate();
     const handleCancel = () => {
         navigate("/");
@@ -19,6 +20,11 @@ export default function TransactionForm({ transaction, handleSubmit, action }: P
     return (
         <div className="flex justify-center items-center bg-gray-100">
             <div className="w-full max-w-md bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                {error && (
+                    <div className="text-red-500 text-sm mb-4">
+                        {error.response?.data || 'Ocurrió un error al guardar la transacción.'}
+                    </div>
+                )}
 
                 <Formik
                     initialValues={{
@@ -28,10 +34,18 @@ export default function TransactionForm({ transaction, handleSubmit, action }: P
                         transactionDate: transaction ? transaction.transactionDate : '',
                     }}
                     validationSchema={yup.object({
-                        amount: yup.number().required('El monto es requerido'),
+                        amount: yup.number().required('El monto es requerido')
+                            .min(0, 'El monto debe ser mayor o igual a 0'),
                         merchant: yup.string().required('El comercio es requerido'),
                         username: yup.string().required('El usuario es requerido'),
-                        transactionDate: yup.string().required('La fecha es requerida')
+                        transactionDate: yup.string().required('La fecha es requerida').test(
+                            'is-not-future',
+                            'La fecha no puede ser en el futuro',
+                            value => {
+                                if (!value) return true; // El valor ya es validado por el required
+                                return new Date(value) <= new Date();
+                            }
+                        )
                     })}
                     onSubmit={(values: TransactionInput) => handleSubmit(values)}
                 >

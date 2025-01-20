@@ -20,5 +20,8 @@ export const useAddTransaction = (): UseBaseMutationResult<AxiosResponse<Transac
             queryClient.invalidateQueries({ queryKey: ['transactions'] });
             navigate('/', { replace: true });
         },
+        onError: (error) => {
+            // console.error('Error saving transaction: ', error)
+        }
     });
 };
