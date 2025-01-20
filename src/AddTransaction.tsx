@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import { useAddTransaction } from './hooks/useAddTransaction';
 import TransactionForm from './TransactionForm.tsx';
 

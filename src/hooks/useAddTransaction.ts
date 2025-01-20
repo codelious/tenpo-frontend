@@ -19,6 +19,6 @@ export const useAddTransaction = (): UseBaseMutationResult<AxiosResponse<Transac
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ['transactions'] });
             navigate('/', { replace: true });
-        }
+        },
     });
 };
