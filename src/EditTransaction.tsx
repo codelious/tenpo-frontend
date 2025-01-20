@@ -14,8 +14,8 @@ export default function EditTransaction() {
     const { mutate: editTransaction } = useEditTransaction(id ? parseInt(id) : 0);
     return (
         <div className="w-full mt-2 items-center bg-gray-100 min-h-screen">
-            <h1 className="text-4xl font-bold mb-4">Edit Transaction</h1>
-            {isLoading? <h1>Fetching todo...</h1> : <TransactionForm transaction={transaction} handleSubmit={editTransaction} action="Edit Transaction"/> }
+            <h1 className="text-4xl font-bold mb-4">Editar Transacción</h1>
+            {isLoading? <h1>Obteniendo transacción...</h1> : <TransactionForm transaction={transaction} handleSubmit={editTransaction} action="Guardar"/> }
         </div>
     );
 }
