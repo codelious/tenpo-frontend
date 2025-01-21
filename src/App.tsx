@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { format } from 'date-fns';
 
 function App() {
-    const { data: transactions, isLoading, isError } = useFetchTransactions();
+    const { data: transactions, isLoading, isError, error  } = useFetchTransactions();
     const navigate = useNavigate();
     const { mutate: deleteTransaction } = useDeleteTransaction();
 
@@ -17,7 +17,7 @@ function App() {
             {isLoading ? (
                 <h1>Loading...</h1>
             ) : isError ? (
-                <h1>Error al obtener transacciones</h1>
+                <h1>Error al obtener transacciones: {error.message}</h1>
             ) : (
                 <div className="space-y-4">
                     {transactions?.map(transaction => {

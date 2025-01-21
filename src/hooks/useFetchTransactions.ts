@@ -13,6 +13,6 @@ export const useFetchTransactions = (): QueryObserverResult<Transaction[], any> 
             const { data } = await fetchTransactions();
             return data;
         },
-        queryKey: [ 'transactions' ]
+        queryKey: [ 'transactions' ],
     });
 };
