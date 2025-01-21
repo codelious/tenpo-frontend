@@ -1,50 +1,89 @@
-# React + TypeScript + Vite
+# Tenpo Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descripción
+Tenpo Frontend es una aplicación web desarrollada con React que permite a los usuarios gestionar transacciones financieras. La aplicación ofrece funcionalidades como listar, agregar, editar y eliminar transacciones, además de validaciones y manejo de errores a través de `react-query` y `axios`.
 
-Currently, two official plugins are available:
+## Tecnologías Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React**: Biblioteca para la creación de interfaces de usuario.
+- **TypeScript**: Lenguaje que añade tipos estáticos a JavaScript.
+- **React Query**: Manejador de estados y sincronización de datos del servidor.
+- **Axios**: Cliente HTTP para realizar peticiones al backend.
+- **Formik**: Biblioteca para la gestión de formularios.
+- **Yup**: Biblioteca para validación de esquemas de objetos.
+- **React Router**: Manejo de rutas dentro de la aplicación.
 
-## Expanding the ESLint configuration
+## Instalación
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. Clonar el repositorio:
+   ```bash
+   git clone https://github.com/tu-usuario/tenpo-frontend.git
+   ```
+2. Navegar al directorio del proyecto:
+   ```bash
+   cd tenpo-frontend
+   ```
+3. Instalar las dependencias:
+   ```bash
+   npm install
+   ```
 
-- Configure the top-level `parserOptions` property like this:
+## Scripts Disponibles
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- `npm start`: Inicia la aplicación en modo desarrollo.
+- `npm run build`: Construye la aplicación para producción.
+- `npm test`: Ejecuta los tests.
+- `npm run lint`: Ejecuta el linter para verificar la calidad del código.
+
+## Estructura del Proyecto
+
+```
+|-- src/
+    |-- api/
+    |   |-- client.ts
+    |-- components/
+    |   |-- TransactionForm.tsx
+    |-- hooks/
+    |   |-- useFetchTransactions.ts
+    |   |-- useAddTransaction.ts
+    |-- types/
+    |   |-- transaction.types.ts
+    |-- App.tsx
+    |-- index.tsx
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Características Principales
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- **Gestor de Transacciones**: Listar, agregar, editar y eliminar transacciones.
+- **Validación de Formularios**: Validación de campos usando Formik y Yup.
+- **Manejo de Errores**: Captura y manejo de errores de peticiones HTTP.
+- **Rutas Dinámicas**: Navegación entre distintas vistas con React Router.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+## Configuración
+
+### Variables de Entorno
+
+Para configurar el cliente HTTP, puedes definir las siguientes variables de entorno en un archivo `.env`:
+
 ```
+REACT_APP_API_BASE_URL=http://localhost:3000/api
+```
+
+## Contribución
+
+Si deseas contribuir a este proyecto, por favor sigue los pasos a continuación:
+
+1. Haz un fork del repositorio.
+2. Crea una rama con la nueva funcionalidad o corrección de errores:
+   ```bash
+   git checkout -b feature/nueva-funcionalidad
+   ```
+3. Realiza tus cambios y haz un commit:
+   ```bash
+   git commit -m "Agrega nueva funcionalidad"
+   ```
+4. Sube tus cambios al repositorio remoto:
+   ```bash
+   git push origin feature/nueva-funcionalidad
+   ```
+5. Abre un Pull Request en GitHub.
