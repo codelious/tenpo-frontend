@@ -21,7 +21,7 @@ export const useEditTransaction = (
             navigate('/', { replace: true });
         },
         onError: (error) => {
-            // console.error('Error saving transaction: ', error)
+            console.error('Error saving transaction: ', error)
         }
     });
 };

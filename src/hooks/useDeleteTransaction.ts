@@ -15,7 +15,7 @@ export const useDeleteTransaction = (): UseBaseMutationResult<AxiosResponse<any,
             queryClient.invalidateQueries({ queryKey: ['transactions'] });
         },
         onError: (error) => {
-            // console.error('Error deleting transaction: ', error)
+            console.error('Error deleting transaction: ', error)
         }
     });
 };
