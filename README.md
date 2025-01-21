@@ -1,7 +1,9 @@
 # Tenpo Frontend
 
-## Descripción
 Tenpo Frontend es una aplicación web desarrollada con React que permite a los usuarios gestionar transacciones financieras. La aplicación ofrece funcionalidades como listar, agregar, editar y eliminar transacciones, además de validaciones y manejo de errores a través de `react-query` y `axios`.
+
+- Author: Rodrigo Espinoza A.
+- Email: rodrigo.espinoza.aguayo@gmail.com
 
 ## Tecnologías Utilizadas
 
@@ -30,10 +32,9 @@ Tenpo Frontend es una aplicación web desarrollada con React que permite a los u
 
 ## Scripts Disponibles
 
-- `npm start`: Inicia la aplicación en modo desarrollo.
+- `npm run dev`: Inicia la aplicación en modo desarrollo.
 - `npm run build`: Construye la aplicación para producción.
-- `npm test`: Ejecuta los tests.
-- `npm run lint`: Ejecuta el linter para verificar la calidad del código.
+
 
 ## Estructura del Proyecto
 
@@ -68,22 +69,3 @@ Para configurar el cliente HTTP, puedes definir las siguientes variables de ento
 ```
 REACT_APP_API_BASE_URL=http://localhost:3000/api
 ```
-
-## Contribución
-
-Si deseas contribuir a este proyecto, por favor sigue los pasos a continuación:
-
-1. Haz un fork del repositorio.
-2. Crea una rama con la nueva funcionalidad o corrección de errores:
-   ```bash
-   git checkout -b feature/nueva-funcionalidad
-   ```
-3. Realiza tus cambios y haz un commit:
-   ```bash
-   git commit -m "Agrega nueva funcionalidad"
-   ```
-4. Sube tus cambios al repositorio remoto:
-   ```bash
-   git push origin feature/nueva-funcionalidad
-   ```
-5. Abre un Pull Request en GitHub.
